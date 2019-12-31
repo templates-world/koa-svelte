@@ -34,8 +34,31 @@ npx degit Olyno/koa-svelte my-app
  - Typescript support
     1) Install typescript dependecies: ``npm i -D typescript @types/koa @types/koa-static @types/koa-send ts-node``
     2) Remove unused babel dependencies: ``npm uninstall -D @babel/core @babel/node @babel/preset-env``
-    3) Change the ``server/index.js`` file to make it compatible with typescript
-    4) Replace ``babel-node`` to ``ts-node`` inside your ``package.json`` file
+    3) Change the ``server/index.js`` file to ``server/index.ts`` and make it compatible with typescript:
+    ```diff
+    - import koa from 'koa';
+    - import send from 'koa-send';
+    - import serve from 'koa-static';
+    + import * as koa from 'koa';
+    + import * as send from 'koa-send';
+    + import * as serve from 'koa-static';
+
+    const PORT = 3000;
+
+    const app = new koa();
+
+    // Serve static assets
+    app.use(serve('public'));
+
+    // Serve index.html file
+    app.use(async (ctx, next) => {
+        await send(ctx, 'index.html', { root: 'public' });
+        return next();
+    })
+
+    app.listen(PORT, () => console.log('> Server listening at http://localhost:' + PORT))
+    ```
+    4) Replace ``babel-node`` to ``ts-node`` inside the ``start`` script in your ``package.json`` file
     5) Remove unused ``.babelrc`` file
  - Security
     1) Install security dependencies: ``npm i koa-helmet koa-protect @koa/cors``
