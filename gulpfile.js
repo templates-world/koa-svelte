@@ -73,8 +73,10 @@ async function build(production) {
     buildAssets(production);
     buildServer(production);
 
-    watch(['src/**/*.svelte'], () => buildAssets(production));
-    watch(['src/**/*.ts'], () => buildServer(production));
+    if (!production) {
+        watch(['src/**/*.svelte'], () => buildAssets(production));
+        watch(['src/**/*.ts'], () => buildServer(production));
+    }
     
 }
 
