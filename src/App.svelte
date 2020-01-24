@@ -1,18 +1,6 @@
 <script>
-
-	import { Router, Route } from 'swheel';
-	
-	import Index from './pages/Index.svelte';
-	import About from './pages/About.svelte';
-
+	import { Router } from "@sveltech/routify";
+	import { routes } from "@sveltech/routify/tmp/routes";
 </script>
 
-<Router>
-	<Route path="/" exact>
-		<Index />
-	</Route>
-
-	<Route path="/about">
-		<About />
-	</Route>
-</Router>
+<Router {routes} />

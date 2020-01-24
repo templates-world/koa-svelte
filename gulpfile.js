@@ -1,13 +1,13 @@
 const { watch } = require('gulp');
 const killProcess = require('tree-kill');
 const rollup = require('rollup');
-// const chalk = require('chalk');
 
 const svelte = require('rollup-plugin-svelte');
 const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const livereload = require('rollup-plugin-livereload');
 const { terser } = require('rollup-plugin-terser');
+const { routify } = require('@sveltech/routify');
 
 let server;
 
@@ -25,6 +25,9 @@ async function buildAssets(production) {
     return rollup.rollup({
         input: 'src/main.js',
         plugins: [
+
+            routify(),
+
             svelte({
                 // enable run-time checks when not in production
                 dev: !production,

@@ -23,7 +23,7 @@ npx degit Olyno/koa-svelte my-app
     - [rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser) : to minify compiled code
  - [gulp](https://gulpjs.com) : to manage tasks easily
  - [svelte](https://svelte.dev) : -_-
- - [swheel](https://github.com/qutran/swheel) : Svelte router
+ - [routify](https://github.com/sveltech/routify) : Svelte router
  - [tree-kill](https://www.npmjs.com/package/tree-kill) : to kill a process (using to restart server)
  - [koa](https://koajs.com) : -_-
  - [koa-static](https://github.com/koajs/static) : to serve static files
