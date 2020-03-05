@@ -26,7 +26,9 @@ async function buildAssets(production) {
         input: 'src/main.js',
         plugins: [
 
-            routify(),
+            routify({
+                buildSingle: production
+            }),
 
             svelte({
                 // enable run-time checks when not in production
