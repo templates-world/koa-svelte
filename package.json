@@ -18,7 +18,7 @@
     "rollup-plugin-livereload": "1.0.4",
     "rollup-plugin-svelte": "5.1.1",
     "rollup-plugin-terser": "5.2.0",
-    "svelte": "3.19.1",
+    "svelte": "3.19.2",
     "tree-kill": "1.2.2"
   },
   "dependencies": {
